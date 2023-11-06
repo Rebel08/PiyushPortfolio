@@ -5,11 +5,11 @@ styleSwitcherToggle.addEventListener("click",()=>{
 })
 
 // hide style switcher on scroll
-window.addEventListener("scroll",()=>{
-    if(document.querySelector(".style-switcher").classList.contains("open")){
-        document.querySelector(".style-switcher").classList.remove("open");
-    }
-})
+// window.addEventListener("scroll",()=>{
+//     if(document.querySelector(".style-switcher").classList.contains("open")){
+//         document.querySelector(".style-switcher").classList.remove("open");
+//     }
+// })
 
 /*---========================================== Theme Colors================================================*/
 
@@ -23,6 +23,7 @@ function setActiveStyle(color){
             style.setAttribute("disabled","true");
         }
     });
+    document.querySelector(".style-switcher").classList.toggle("open");
 }
 /*---========================================== Theme light and dark mode================================================*/
 

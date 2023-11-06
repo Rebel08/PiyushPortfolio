@@ -13,12 +13,17 @@ const nav = document.querySelector(".nav"),
       totalNavList = navList.length,
       allSection = document.querySelectorAll(".section"),
       totalSection = allSection.length;
+
+const navTogglerBtn = document.querySelector(".nav-toggler");
+const aside = document.querySelector(".aside");
+
       for(let i=0; i<totalNavList; i++)
       {
           const a = navList[i].querySelector("a");
           a.addEventListener("click", function()
           {  
               removeBackSection();
+              
               for(let j=0; j<totalNavList; j++){
                 if(navList[j].querySelector("a").classList.contains("active"))
                 {  
@@ -27,7 +32,9 @@ const nav = document.querySelector(".nav"),
                 }
                   navList[j].querySelector("a").classList.remove("active");
                 }
-              this.classList.add("active")
+              this.classList.add("active");
+              aside.classList.toggle("open");
+              navTogglerBtn.classList.toggle("open");
               showSection(this);
           })
       }
@@ -68,17 +75,15 @@ document.querySelector(".hire-me").addEventListener("click",function(){
 
 })
 
-const navTogglerBtn = document.querySelector(".nav-toggler");
-  aside = document.querySelector(".aside");
-  navTogglerBtn.addEventListener("click",()=>{
+
+
+navTogglerBtn.addEventListener("click",()=>{
     asideSectionTogglerBtn();
   })
-  function asideSectionTogglerBtn(){
+
+function asideSectionTogglerBtn(){
     aside.classList.toggle("open");
-    navTogglerBtn.classList.toggle("open");
-    for(let i=0;i<totalSection;i++){
-         allSection[i].classList.toggle("open");
-    }
+    navTogglerBtn.classList.toggle("open");   
   }
 
   /*====================== contact form====================*/
